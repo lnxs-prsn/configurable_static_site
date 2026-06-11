@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section
+  class="relative flex items-end min-h-[100dvh] px-4 pb-16 sm:px-6 lg:px-8"
+  {% if images['home-1'] %}
+  style="background-image: url('/static/images/home-1.jpg'); background-size: cover; background-position: center;"
+  {% else %}
+  style="background-color: var(--color-primary);"
+  {% endif %}
+>
+  <!-- Gradient overlay -->
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(to top, rgba(15,76,76,0.85) 0%, rgba(15,76,76,0.30) 60%, rgba(15,76,76,0.00) 100%);"
+  ></div>
+
+  <!-- Hero text -->
+  <div class="relative z-10 max-w-7xl mx-auto w-full">
+    <h1 class="text-5xl font-bold text-white">Tusmo ry</h1>
+    <p class="mt-2 text-xl font-normal text-white">Monikulttuurista yhteistyötä ja vuoropuhelua.</p>
+  </div>
+</section>
+
+<!-- Intro Section -->
+<section class="bg-background bg-texture py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-prose mx-auto">
+    <div class="prose">
+      {{ content_html | safe }}
+    </div>
+    <p class="mt-6">
+      <a href="/tietoa-jarjestosta/" class="text-primary underline hover:text-primary-light">Lue lisää järjestöstä</a>
+    </p>
+  </div>
+</section>
+
+<!-- Image Row Section -->
+{% if config.sections.image_row and images['home-2'] %}
+<section class="bg-background bg-texture py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-lg mx-auto">
+    <img
+      src="/static/images/home-2.jpg"
+      alt="Tusmo ry:n yhteisötila"
+      class="w-full h-auto rounded-lg"
+      loading="lazy"
+    >
+  </div>
+</section>
+{% endif %}
+{% endblock %}

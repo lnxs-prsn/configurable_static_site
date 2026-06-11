@@ -1,0 +1,68 @@
+/* @font-face declarations MUST come before @import "tailwindcss" */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/static/fonts/noto-sans-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/static/fonts/noto-sans-700.woff2') format('woff2');
+}
+
+@import "tailwindcss";
+
+/* Tell Tailwind v4 which files to scan for class names */
+@source "../templates/**/*.html";
+
+@theme {
+  /* Brand colors — change hex here, rebuild, entire site updates */
+  --color-primary: #0f4c4c;        /* Deep teal — navbar, dark sections, headings */
+  --color-primary-light: #1a6b6b;  /* Lighter teal — hover states, depth */
+  --color-primary-dark: #0a3333;   /* Darker teal — shadows, borders on dark bg */
+
+  --color-background: #f7f5f0;     /* Warm off-white — dominant page background */
+  --color-surface: #ffffff;        /* Pure white — cards, form inputs */
+  --color-muted: #e5e1d8;          /* Light warm gray — dividers, subtle borders */
+  --color-text-secondary: #6b6560; /* Medium gray — body text, descriptions */
+  --color-text-primary: #1a1a1a;   /* Near-black — headings, primary text */
+
+  --color-accent: #c9a84c;         /* Warm gold — CTAs, active nav indicator */
+  --color-accent-hover: #b8983f;   /* Darker gold — button hover */
+
+  --color-success: #2d7a3e;        /* Green — form success state only */
+  --color-error: #b91c1c;          /* Red — form error state only */
+
+  /* Font token */
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Texture opacity token — must match stroke-opacity in .bg-texture SVG data URI */
+  --texture-opacity: 0.02;
+}
+
+/* Girih lattice texture */
+.bg-texture {
+  color: var(--color-primary);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%221%22%20stroke-opacity%3D%220.02%22%20d%3D%22M100%2C30L149.5%2C149.5L30%2C100L149.5%2C50.5L100%2C170L50.5%2C149.5L170%2C100L50.5%2C50.5ZM100%2C70L121.2%2C121.2L70%2C100L121.2%2C78.8L100%2C130L78.8%2C121.2L130%2C100L78.8%2C78.8ZM100%2C70L100%2C30M130%2C100L170%2C100M100%2C130L100%2C170M70%2C100L30%2C100M121.2%2C78.8L149.5%2C50.5M121.2%2C121.2L149.5%2C149.5M78.8%2C121.2L50.5%2C149.5M78.8%2C78.8L50.5%2C50.5M100%2C30L100%2C20M80%2C0L100%2C20L120%2C0M170%2C100L180%2C100M200%2C80L180%2C100L200%2C120M100%2C170L100%2C180M80%2C200L100%2C180L120%2C200M30%2C100L20%2C100M0%2C80L20%2C100L0%2C120M50.5%2C50.5L0%2C0M149.5%2C50.5L200%2C0M149.5%2C149.5L200%2C200M50.5%2C149.5L0%2C200%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: repeat;
+}
+
+/* Prose styles — applied to .prose wrapper around Markdown-rendered HTML.
+   No @tailwindcss/typography plugin — no npm required. */
+@layer base {
+  .prose h1 { font-size: 2rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 1rem; }
+  .prose h2 { font-size: 1.5rem; font-weight: 700; color: var(--color-text-primary); margin-top: 2rem; margin-bottom: 0.75rem; }
+  .prose h3 { font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  .prose p  { color: var(--color-text-secondary); line-height: 1.75; margin-bottom: 1rem; }
+  .prose ul { list-style-type: disc; padding-left: 1.5rem; color: var(--color-text-secondary); margin-bottom: 1rem; }
+  .prose ol { list-style-type: decimal; padding-left: 1.5rem; color: var(--color-text-secondary); margin-bottom: 1rem; }
+  .prose li { margin-bottom: 0.25rem; line-height: 1.75; }
+  .prose a  { color: var(--color-primary); text-decoration: underline; }
+  .prose a:hover { color: var(--color-primary-light); }
+  .prose strong { font-weight: 700; color: var(--color-text-primary); }
+}

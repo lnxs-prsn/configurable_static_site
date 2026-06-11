@@ -1,0 +1,38 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<!-- Banner image -->
+{% if images['toiminta-1'] %}
+<section class="w-full">
+  <img
+    src="/static/images/toiminta-1.jpg"
+    alt="Tusmo ry:n ohjelmat"
+    class="w-full h-auto"
+    loading="eager"
+  >
+</section>
+{% endif %}
+
+<!-- Prose content -->
+<section class="bg-background bg-texture py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-prose mx-auto">
+    <div class="prose">
+      {{ content_html | safe }}
+    </div>
+  </div>
+</section>
+
+<!-- Secondary image -->
+{% if images['toiminta-2'] %}
+<section class="bg-background bg-texture pb-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md mx-auto">
+    <img
+      src="/static/images/toiminta-2.jpg"
+      alt="Tusmo ry:n toiminta"
+      class="w-full h-auto rounded-lg"
+      loading="lazy"
+    >
+  </div>
+</section>
+{% endif %}
+{% endblock %}
