@@ -1,19 +1,15 @@
-site:
-  url: "https://tusmo.fi"
-
+form_endpoint: ''
 pages:
   about: true
-  toiminta: true
   tapahtumat: true
-
+  toiminta: true
 sections:
   image_row: true
-
+site:
+  url: https://tusmo.fi
 social:
-  facebook: ""
-  instagram: ""
-  youtube: ""
-  twitter: ""
-  tiktok: ""
-
-form_endpoint: ""
+  facebook: ''
+  instagram: ''
+  tiktok: ''
+  twitter: ''
+  youtube: ''

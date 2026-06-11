@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tusmo ry järjestää monenlaista toimintaa yhteisölleen. Tarjoamme tiloja tapahtumille, ohjausta nuorille ja perheille sekä mahdollisuuksia osallistua yhdistyksen">
+
+  <title>Toiminta — Tusmo ry</title>
+
+  <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/main.css">
+
+  <!-- Open Graph tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Toiminta — Tusmo ry">
+  <meta property="og:description" content="Tusmo ry järjestää monenlaista toimintaa yhteisölleen. Tarjoamme tiloja tapahtumille, ohjausta nuorille ja perheille sekä mahdollisuuksia osallistua yhdistyksen">
+  <meta property="og:url" content="https://tusmo.fi/toiminta/">
+  
+  <meta property="og:image" content="https://tusmo.fi/static/images/toiminta-1.jpg">
+  
+
+  
+
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+</head>
+<body class="font-sans bg-background text-text-primary">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-primary text-white" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="/" class="font-bold text-xl tracking-tight">Tusmo ry</a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex space-x-6">
+          
+          <a href="/" class="px-3 py-2 text-sm font-medium hover:text-accent">
+            Etusivu
+          </a>
+          
+          <a href="/tietoa-jarjestosta/" class="px-3 py-2 text-sm font-medium hover:text-accent">
+            Tietoa järjestöstä
+          </a>
+          
+          <a href="/toiminta/" class="px-3 py-2 text-sm font-medium border-l-4 border-accent">
+            Toiminta
+          </a>
+          
+          <a href="/tapahtumat/" class="px-3 py-2 text-sm font-medium hover:text-accent">
+            Tapahtumat
+          </a>
+          
+          <a href="/yhteystiedot/" class="px-3 py-2 text-sm font-medium hover:text-accent">
+            Yhteystiedot
+          </a>
+          
+        </div>
+
+        <!-- Mobile hamburger button -->
+        <button
+          x-show="!open"
+          @click="open = true"
+          aria-label="Avaa valikko"
+          class="md:hidden p-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+
+        <!-- Mobile X close button -->
+        <button
+          x-show="open"
+          @click="open = false"
+          aria-label="Sulje valikko"
+          class="md:hidden p-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile tray -->
+    <div
+      x-show="open"
+      @click.outside="open = false"
+      class="md:hidden bg-primary-dark border-t border-primary-light"
+    >
+      <div class="px-4 py-3 space-y-2">
+        
+        <a href="/" class="block px-3 py-2 text-sm font-medium hover:text-accent">
+          Etusivu
+        </a>
+        
+        <a href="/tietoa-jarjestosta/" class="block px-3 py-2 text-sm font-medium hover:text-accent">
+          Tietoa järjestöstä
+        </a>
+        
+        <a href="/toiminta/" class="block px-3 py-2 text-sm font-medium border-l-4 border-accent">
+          Toiminta
+        </a>
+        
+        <a href="/tapahtumat/" class="block px-3 py-2 text-sm font-medium hover:text-accent">
+          Tapahtumat
+        </a>
+        
+        <a href="/yhteystiedot/" class="block px-3 py-2 text-sm font-medium hover:text-accent">
+          Yhteystiedot
+        </a>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    
+<!-- Banner image -->
+
+<section class="w-full">
+  <img
+    src="/static/images/toiminta-1.jpg"
+    alt="Tusmo ry:n ohjelmat"
+    class="w-full h-auto"
+    loading="eager"
+  >
+</section>
+
+
+<!-- Prose content -->
+<section class="bg-background bg-texture py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-prose mx-auto">
+    <div class="prose">
+      <p>Tusmo ry järjestää monenlaista toimintaa yhteisölleen. Tarjoamme tiloja tapahtumille, ohjausta nuorille ja perheille sekä mahdollisuuksia osallistua yhdistyksen toimintaan.</p>
+<p><strong>Tämä on tilateksti.</strong> Korvaa tämä sisältö kirjoittamalla oma teksti tähän tiedostoon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Secondary image -->
+
+<section class="bg-background bg-texture pb-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md mx-auto">
+    <img
+      src="/static/images/toiminta-2.jpg"
+      alt="Tusmo ry:n toiminta"
+      class="w-full h-auto rounded-lg"
+      loading="lazy"
+    >
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white border-t-4 border-accent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Column 1: Organization Info -->
+        <div>
+          <p class="font-bold text-lg">Tusmo ry</p>
+          <p class="mt-1 text-white/80">Monikulttuurista yhteistyötä ja vuoropuhelua.</p>
+          <p class="mt-3 text-white/80">Leisikuja 7A, 01600 Vantaa</p>
+          <p class="mt-1 text-white/80">044 9737410</p>
+          <p class="mt-1 text-white/80">Tusmo.ry@hotmail.com</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <p class="font-bold text-lg mb-3">Sivut</p>
+          <ul class="space-y-2">
+            
+            <li><a href="/" class="text-white/80 hover:text-accent">Etusivu</a></li>
+            
+            <li><a href="/tietoa-jarjestosta/" class="text-white/80 hover:text-accent">Tietoa järjestöstä</a></li>
+            
+            <li><a href="/toiminta/" class="text-white/80 hover:text-accent">Toiminta</a></li>
+            
+            <li><a href="/tapahtumat/" class="text-white/80 hover:text-accent">Tapahtumat</a></li>
+            
+            <li><a href="/yhteystiedot/" class="text-white/80 hover:text-accent">Yhteystiedot</a></li>
+            
+          </ul>
+        </div>
+
+        <!-- Column 3: Social (conditional) -->
+        
+      </div>
+
+      <!-- Copyright (when no social) -->
+      
+      <div class="mt-8">
+        <p class="text-sm text-white/60">&copy; 2026 Tusmo ry. Kaikki oikeudet pidätetään.</p>
+      </div>
+      
+
+      <!-- Bottom bar -->
+      <div class="mt-8 pt-6 border-t border-primary-light">
+        <p class="text-sm text-white/80">Tusmo ry on rekisteröity yhdistys, joka toimii Vantaan Myyrmäessä.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+  
+</body>
+</html>
