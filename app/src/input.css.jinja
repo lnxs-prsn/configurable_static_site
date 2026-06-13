@@ -1,6 +1,6 @@
 /* @font-face declarations MUST come before @import "tailwindcss" */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: '{{ font_family }}';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: '{{ font_family }}';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -21,24 +21,24 @@
 @source "../templates/**/*.html";
 
 @theme {
-  --color-primary: #1a52a3;
-  --color-primary-light: #2563b8;
-  --color-primary-dark: #103d82;
+  --color-primary: {{ colors.primary }};
+  --color-primary-light: {{ colors.primary_light }};
+  --color-primary-dark: {{ colors.primary_dark }};
 
-  --color-background: #ffffff;
-  --color-surface: #f4f6fa;
-  --color-muted: #dde3ef;
-  --color-text-secondary: #5a6170;
-  --color-text-primary: #1a1a1a;
+  --color-background: {{ colors.background }};
+  --color-surface: {{ colors.surface }};
+  --color-muted: {{ colors.muted }};
+  --color-text-secondary: {{ colors.text_secondary }};
+  --color-text-primary: {{ colors.text_primary }};
 
-  --color-accent: #c9a84c;
-  --color-accent-hover: #b8983f;
+  --color-accent: {{ colors.accent }};
+  --color-accent-hover: {{ colors.accent_hover }};
 
-  --color-success: #2d7a3e;
-  --color-error: #b91c1c;
+  --color-success: {{ colors.success }};
+  --color-error: {{ colors.error }};
 
   /* Font token */
-  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "{{ font_family }}", ui-sans-serif, system-ui, sans-serif;
 
   /* Texture opacity token — must match stroke-opacity in .bg-texture SVG data URI */
   --texture-opacity: 0.02;

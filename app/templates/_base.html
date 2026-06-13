@@ -7,7 +7,11 @@
 
   <title>{% block title %}{% if current_page == 'home' %}Tusmo ry{% else %}{{ page_title }} — Tusmo ry{% endif %}{% endblock %}</title>
 
+  {% if site_logo %}
+  <link rel="icon" href="{{ site_logo }}" type="image/png">
+  {% else %}
   <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
+  {% endif %}
   <link rel="stylesheet" href="/static/css/main.css">
 
   <!-- Open Graph tags -->
@@ -31,7 +35,12 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <a href="/" class="font-bold text-xl tracking-tight">Tusmo ry</a>
+        <a href="/" class="flex items-center gap-3">
+          {% if site_logo %}
+          <img src="{{ site_logo }}" alt="Tusmo ry" class="h-10 w-10 rounded-full object-cover">
+          {% endif %}
+          <span class="font-bold text-xl tracking-tight">Tusmo ry</span>
+        </a>
 
         <!-- Desktop links -->
         <div class="hidden md:flex space-x-6">
@@ -101,6 +110,9 @@
 
         <!-- Column 1: Organization Info -->
         <div>
+          {% if site_logo %}
+          <img src="{{ site_logo }}" alt="Tusmo ry" class="h-14 w-14 rounded-full object-cover mb-3">
+          {% endif %}
           <p class="font-bold text-lg">{{ contact.name }}</p>
           <p class="mt-1 text-white/80">{{ contact.mission }}</p>
           <p class="mt-3 text-white/80">{{ contact.address }}</p>

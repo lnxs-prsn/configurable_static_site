@@ -7,9 +7,25 @@ sections:
   image_row: true
 site:
   url: https://tusmo.fi
+  logo: 'logo.png'
 social:
   facebook: ''
   instagram: ''
   tiktok: ''
   twitter: ''
   youtube: ''
+theme:
+  colors:
+    primary: '#1a52a3'
+    primary_light: '#2563b8'
+    primary_dark: '#103d82'
+    accent: '#c9a84c'
+    accent_hover: '#b8983f'
+    background: '#ffffff'
+    surface: '#f4f6fa'
+    muted: '#dde3ef'
+    text_secondary: '#5a6170'
+    text_primary: '#1a1a1a'
+    success: '#2d7a3e'
+    error: '#b91c1c'
+  font_family: 'Noto Sans'

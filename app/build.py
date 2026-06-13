@@ -194,6 +194,9 @@ def build_context():
         },
     }
 
+    logo_file = config.get("site", {}).get("logo", "")
+    site_logo = f"/static/images/{logo_file}" if logo_file and image_exists(logo_file.rsplit(".", 1)[0]) else None
+
     for page_key, page_data in page_meta_map.items():
         og_image = get_og_image(page_key)
         context = {
@@ -211,10 +214,47 @@ def build_context():
             "page_title": page_data["page_title"],
             "meta_description": page_data["meta_description"],
             "og_image": og_image,
+            "site_logo": site_logo,
         }
         contexts[page_key] = context
 
     return contexts
+
+
+DEFAULT_THEME = {
+    "colors": {
+        "primary": "#0f4c4c",
+        "primary_light": "#1a6b6b",
+        "primary_dark": "#0a3333",
+        "accent": "#c9a84c",
+        "accent_hover": "#b8983f",
+        "background": "#f7f5f0",
+        "surface": "#ffffff",
+        "muted": "#e5e1d8",
+        "text_secondary": "#6b6560",
+        "text_primary": "#1a1a1a",
+        "success": "#2d7a3e",
+        "error": "#b91c1c",
+    },
+    "font_family": "Noto Sans",
+}
+
+
+def render_css_template(config):
+    """Render src/input.css from src/input.css.jinja using theme config values."""
+    theme_config = config.get("theme", {})
+    colors_raw = theme_config.get("colors", {})
+    font_family = theme_config.get("font_family", DEFAULT_THEME["font_family"])
+
+    colors = {**DEFAULT_THEME["colors"], **colors_raw}
+
+    env = Environment(loader=FileSystemLoader("src"), autoescape=False)
+    template = env.get_template("input.css.jinja")
+    css = template.render(colors=colors, font_family=font_family)
+
+    with open("src/input.css", "w", encoding="utf-8") as f:
+        f.write(css)
+    print("CSS template rendered: src/input.css")
 
 
 def compile_tailwind():
@@ -359,7 +399,8 @@ def main():
     # Step 2: Read all data
     contexts = build_context()
 
-    # Step 3: Compile Tailwind CSS
+    # Step 3: Render CSS template from config, then compile Tailwind
+    render_css_template(contexts["home"]["config"])
     compile_tailwind()
 
     # Step 4: Copy assets
