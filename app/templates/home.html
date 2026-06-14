@@ -5,7 +5,7 @@
 <section
   class="relative flex items-end min-h-[100dvh] px-4 pb-16 sm:px-6 lg:px-8"
   {% if images['home-1'] %}
-  style="background-image: url('/static/images/home-1.jpg'); background-size: cover; background-position: center;"
+  style="background-image: url('{{ base_path }}/static/images/home-1.jpg'); background-size: cover; background-position: center;"
   {% else %}
   style="background-color: var(--color-primary);"
   {% endif %}
@@ -30,7 +30,7 @@
       {{ content_html | safe }}
     </div>
     <p class="mt-6">
-      <a href="/tietoa-jarjestosta/" class="text-primary underline hover:text-primary-light">Lue lisää järjestöstä</a>
+      <a href="{{ base_path }}/tietoa-jarjestosta/" class="text-primary underline hover:text-primary-light">Lue lisää järjestöstä</a>
     </p>
   </div>
 </section>
@@ -40,7 +40,7 @@
 <section class="bg-background bg-texture py-8 px-4 sm:px-6 lg:px-8">
   <div class="max-w-lg mx-auto">
     <img
-      src="/static/images/home-2.jpg"
+      src="{{ base_path }}/static/images/home-2.jpg"
       alt="Tusmo ry:n yhteisötila"
       class="w-full h-auto rounded-lg"
       loading="lazy"

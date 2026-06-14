@@ -10,9 +10,9 @@
   {% if site_logo %}
   <link rel="icon" href="{{ site_logo }}" type="image/png">
   {% else %}
-  <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{ base_path }}/static/images/favicon.svg" type="image/svg+xml">
   {% endif %}
-  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="{{ base_path }}/static/css/main.css">
 
   <!-- Open Graph tags -->
   <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <a href="/" class="flex items-center gap-3">
+        <a href="{{ base_path }}/" class="flex items-center gap-3">
           {% if site_logo %}
           <img src="{{ site_logo }}" alt="Tusmo ry" class="h-10 w-10 rounded-full object-cover">
           {% endif %}

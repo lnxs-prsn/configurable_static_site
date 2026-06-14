@@ -67,6 +67,7 @@ def build_context():
     """Build the full Jinja2 context dict for all pages."""
     # 1. Read config
     config = load_yaml("config.yml")
+    base_path = config.get("site", {}).get("base_path", "").rstrip("/")
 
     # 2. Read contact details
     contact = load_yaml("content/yhteystiedot.yml")
@@ -93,11 +94,11 @@ def build_context():
 
     # 6. Build nav_pages
     page_definitions = [
-        {"key": "home", "title": "Etusivu", "url": "/", "toggle_key": None, "always_on": True},
-        {"key": "about", "title": "Tietoa järjestöstä", "url": "/tietoa-jarjestosta/", "toggle_key": "about", "always_on": False},
-        {"key": "toiminta", "title": "Toiminta", "url": "/toiminta/", "toggle_key": "toiminta", "always_on": False},
-        {"key": "tapahtumat", "title": "Tapahtumat", "url": "/tapahtumat/", "toggle_key": "tapahtumat", "always_on": False},
-        {"key": "yhteystiedot", "title": "Yhteystiedot", "url": "/yhteystiedot/", "toggle_key": None, "always_on": True},
+        {"key": "home", "title": "Etusivu", "url": f"{base_path}/", "toggle_key": None, "always_on": True},
+        {"key": "about", "title": "Tietoa järjestöstä", "url": f"{base_path}/tietoa-jarjestosta/", "toggle_key": "about", "always_on": False},
+        {"key": "toiminta", "title": "Toiminta", "url": f"{base_path}/toiminta/", "toggle_key": "toiminta", "always_on": False},
+        {"key": "tapahtumat", "title": "Tapahtumat", "url": f"{base_path}/tapahtumat/", "toggle_key": "tapahtumat", "always_on": False},
+        {"key": "yhteystiedot", "title": "Yhteystiedot", "url": f"{base_path}/yhteystiedot/", "toggle_key": None, "always_on": True},
     ]
 
     nav_pages = []
@@ -195,7 +196,7 @@ def build_context():
     }
 
     logo_file = config.get("site", {}).get("logo", "")
-    site_logo = f"/static/images/{logo_file}" if logo_file and image_exists(logo_file.rsplit(".", 1)[0]) else None
+    site_logo = f"{base_path}/static/images/{logo_file}" if logo_file and image_exists(logo_file.rsplit(".", 1)[0]) else None
 
     for page_key, page_data in page_meta_map.items():
         og_image = get_og_image(page_key)
@@ -215,6 +216,7 @@ def build_context():
             "meta_description": page_data["meta_description"],
             "og_image": og_image,
             "site_logo": site_logo,
+            "base_path": base_path,
         }
         contexts[page_key] = context
 

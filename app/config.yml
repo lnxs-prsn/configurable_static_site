@@ -7,6 +7,7 @@ sections:
   image_row: true
 site:
   url: https://tusmo.fi
+  base_path: ''
   logo: 'logo.png'
 social:
   facebook: ''
