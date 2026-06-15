@@ -71,6 +71,7 @@ def build_context():
 
     # 2. Read contact details
     contact = load_yaml("content/yhteystiedot.yml")
+    about_content = load_yaml("content/tietoa-jarjestosta.yml")
 
     # 3. Read events
     events_data = load_yaml("content/tapahtumat.yml")
@@ -217,6 +218,7 @@ def build_context():
             "og_image": og_image,
             "site_logo": site_logo,
             "base_path": base_path,
+            "about_content": about_content if page_key == "about" else {},
         }
         contexts[page_key] = context
 
