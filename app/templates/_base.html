@@ -37,7 +37,7 @@
         <!-- Logo -->
         <a href="{{ base_path }}/" class="flex items-center gap-3">
           {% if site_logo %}
-          <img src="{{ site_logo }}" alt="Tusmo ry" class="h-10 w-10 rounded-full object-cover">
+          <img src="{{ site_logo }}" alt="Tusmo ry" class="h-10 w-10 rounded-full object-cover object-top">
           {% endif %}
           <span class="font-bold text-xl tracking-tight">Tusmo ry</span>
         </a>
@@ -111,7 +111,7 @@
         <!-- Column 1: Organization Info -->
         <div>
           {% if site_logo %}
-          <img src="{{ site_logo }}" alt="Tusmo ry" class="h-14 w-14 rounded-full object-cover mb-3">
+          <img src="{{ site_logo }}" alt="Tusmo ry" class="h-14 w-14 rounded-full object-cover object-top mb-3">
           {% endif %}
           <p class="font-bold text-lg">{{ contact.name }}</p>
           <p class="mt-1 text-white/80">{{ contact.mission }}</p>
