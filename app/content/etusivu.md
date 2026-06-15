@@ -1,9 +1,1 @@
-Tusmo ry on monikulttuurinen yhdistys, joka edistää yhteistyötä ja vuoropuhelua eri kulttuurien välillä. Tarjoamme tiloja ja toimintaa Vantaan Myyrmäessä. Tervetuloa mukaan!sdlkjfhasdjkfhdsa
-
-asdöfkjhasdfökjhsda
-
-asöfjkhsadfjökhasd
-
-asdkjfsadöfjkh
-
-**Tämä on tilateksti.** Korvaa tämä sisältö kirjoittamalla oma teksti tähän tiedostoon.
+Tusmo ry on vuonna 2016 perustettu rekisteröity yhdistys Vantaalta. Järjestämme ympärivuotisesti maksutonta toimintaa lapsille, nuorille ja perheille — läksykerhoja, liikuntaa, leirejä, taidepajoja ja yhteisöllisiä tapahtumia. Toimintamme on avointa kaikille taustasta riippumatta.
