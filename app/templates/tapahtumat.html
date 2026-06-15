@@ -1,7 +1,8 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<!-- Banner image -->
+
+<!-- 1. Banner image -->
 {% if images['tapahtumat-1'] %}
 <section class="w-full">
   <img
@@ -14,44 +15,72 @@
 </section>
 {% endif %}
 
-<!-- Events content -->
-<section class="bg-background bg-texture py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-3xl mx-auto">
-    <h1 class="text-3xl font-bold text-text-primary mb-8">Tusmo tapahtumat</h1>
-
-    {% if events %}
-      <div class="space-y-6">
-        {% for event in events %}
-        <div class="bg-surface border border-muted rounded-lg p-6">
-          <!-- Date badge -->
-          {% if event.date %}
-          <span class="inline-block px-3 py-1 text-sm text-white bg-accent rounded-full mb-3">
-            {{ event.date }}
-          </span>
-          {% endif %}
-
-          <!-- Event name -->
-          <h2 class="text-lg font-bold text-text-primary">{{ event.name }}</h2>
-
-          <!-- Location -->
-          {% if event.location %}
-          <p class="mt-2 text-text-secondary flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            {{ event.location }}
-          </p>
-          {% endif %}
-
-          <!-- Description -->
-          {% if event.description %}
-          <p class="mt-2 text-text-secondary">{{ event.description }}</p>
-          {% endif %}
-        </div>
-        {% endfor %}
-      </div>
+<!-- 2. Intro -->
+<section class="bg-background py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-prose mx-auto">
+    <h1 class="text-3xl font-bold text-primary">Tapahtumat</h1>
+    {% if tapahtumat_content.intro %}
+    <p class="mt-4 text-text-secondary leading-relaxed text-lg">{{ tapahtumat_content.intro }}</p>
     {% endif %}
   </div>
 </section>
+
+<!-- 3. Event categories -->
+{% if tapahtumat_content.categories %}
+<section class="bg-surface py-14 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% for category in tapahtumat_content.categories %}
+      <div class="bg-background rounded-xl p-6 shadow-sm border-l-4 border-accent">
+        <h2 class="text-lg font-bold text-primary mb-2">{{ category.name }}</h2>
+        <p class="text-text-secondary leading-relaxed text-sm">{{ category.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- 4. Upcoming specific events (shown only when events exist) -->
+{% if events %}
+<section class="bg-background py-14 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-2xl font-bold text-primary mb-8">Tulevat tapahtumat</h2>
+    <div class="space-y-6">
+      {% for event in events %}
+      <div class="bg-surface border border-muted rounded-lg p-6">
+        {% if event.date %}
+        <span class="inline-block px-3 py-1 text-sm text-white bg-accent rounded-full mb-3">
+          {{ event.date }}
+        </span>
+        {% endif %}
+        <h3 class="text-lg font-bold text-text-primary">{{ event.name }}</h3>
+        {% if event.location %}
+        <p class="mt-2 text-text-secondary flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          {{ event.location }}
+        </p>
+        {% endif %}
+        {% if event.description %}
+        <p class="mt-2 text-text-secondary">{{ event.description }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- 5. Slogan -->
+{% if tapahtumat_content.slogan %}
+<section class="bg-primary py-16 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-2xl mx-auto text-center">
+    <p class="text-3xl font-bold italic text-white">"{{ tapahtumat_content.slogan }}"</p>
+  </div>
+</section>
+{% endif %}
+
 {% endblock %}

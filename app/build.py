@@ -76,6 +76,11 @@ def build_context():
     # 3. Read events
     events_data = load_yaml("content/tapahtumat.yml")
     events = events_data.get("events", [])
+    tapahtumat_content = {
+        "intro": events_data.get("intro", ""),
+        "categories": events_data.get("categories", []),
+        "slogan": events_data.get("slogan", ""),
+    }
 
     # 4. Read Markdown content files
     home_md = load_markdown("content/etusivu.md")
@@ -219,6 +224,7 @@ def build_context():
             "site_logo": site_logo,
             "base_path": base_path,
             "about_content": about_content if page_key == "about" else {},
+            "tapahtumat_content": tapahtumat_content if page_key == "tapahtumat" else {},
         }
         contexts[page_key] = context
 
