@@ -1,0 +1,26 @@
+activities:
+  - name: "Läksykerho"
+    description: "Läksykerhoa järjestetään koulujen lukukausien aikana maanantaista torstaihin. Syyslukukaudella toiminta alkaa yleensä elokuun kolmannella viikolla ja jatkuu joululoman alkuun asti. Kevätlukukaudella toiminta jatkuu koulujen alettua tammikuussa lukuvuoden päättymiseen saakka."
+    note: "Läksykerho tarjoaa lapsille ja nuorille tukea koulutehtävissä, oppimisessa ja opiskelutaidoissa turvallisessa ympäristössä."
+
+  - name: "Viikonloppu- ja loma-ajan toiminta"
+    description: "Koulujen loma-aikoina ja viikonloppuisin järjestämme lapsille ja nuorille erilaista vapaa-ajan toimintaa, kuten pelejä, liikuntaa, retkiä, turnauksia, ulkoilua ja muuta yhteisöllistä tekemistä."
+
+  - name: "Taidepaja"
+    description: "Taidepajassa lapset ja nuoret voivat osallistua luovaan toimintaan, kuten maalaamiseen, askarteluun, käsitöihin ja muihin taideprojekteihin."
+
+  - name: "Päiväleirit ja kesätoiminta"
+    description: "Kesäisin järjestämme päiväleirejä ja muuta ohjattua toimintaa koululaisten kesäloman ajaksi. Leirit tarjoavat turvallista, kehittävää ja mukavaa tekemistä lapsille ja nuorille."
+
+  - name: "Liikuntakerhot"
+    description: "Järjestämme liikuntatoimintaa tytöille ja pojille eri ikäryhmissä."
+    sports:
+      - "Futsal"
+      - "Jalkapallo"
+      - "Koripallo"
+      - "Muut liikuntamuodot"
+    venues:
+      - "Kilterin koulu"
+      - "Pähkinärinteen koulu"
+      - "Uomarinteen koulu"
+    note: "Kerhojen tarkemmat aikataulut päivitetään vuosittain."

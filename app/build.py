@@ -72,6 +72,8 @@ def build_context():
     # 2. Read contact details
     contact = load_yaml("content/yhteystiedot.yml")
     about_content = load_yaml("content/tietoa-jarjestosta.yml")
+    toiminta_data = load_yaml("content/toiminta.yml")
+    toiminta_content = {"activities": toiminta_data.get("activities", [])}
 
     # 3. Read events
     events_data = load_yaml("content/tapahtumat.yml")
@@ -225,6 +227,7 @@ def build_context():
             "base_path": base_path,
             "about_content": about_content if page_key == "about" else {},
             "tapahtumat_content": tapahtumat_content if page_key == "tapahtumat" else {},
+            "toiminta_content": toiminta_content if page_key == "toiminta" else {},
         }
         contexts[page_key] = context
 
